@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My text of 博文尚美</title>
+    <link rel="stylesheet" href="./mytext.css">
+    <style>
+        #banner {
+            position: relative;
+        }
+        
+        #banner .banner_list {
+            width: 100%;
+            height: 469px;
+            position: relative;
+        }
+        
+        #banner .banner_list li {
+            width: 100%;
+            height: 469px;
+            background: center 0 no-repeat;
+            /* 使图片居中 */
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            z-index: 1;
+        }
+        
+        #banner .banner_list li.active {
+            opacity: 1;
+            z-index: 10;
+        }
+        
+        #banner .banner_list a {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        
+        #banner .banner_btn {
+            width: 100%;
+            position: absolute;
+            bottom: 19px;
+            z-index: 20;
+            font-size: 0;
+            text-align: center;
+        }
+        
+        #banner .banner_btn li {
+            display: inline-block;
+            /* 使其拍成一排 */
+            width: 12px;
+            height: 12px;
+            border: 2px solid white;
+            border-radius: 50%;
+            /* 添加圆角 */
+            box-sizing: border-box;
+            margin: 0 6px;
+            cursor: pointer;
+        }
+        
+        #banner .banner_btn li.active {
+            background: white;
+        }
+        
+        #service {
+            overflow: hidden;
+            min-height: 407px;
+        }
+        
+        #service .service_list {
+            text-align: center;
+            margin-top: 34px;
+        }
+        
+        #service .service_list li {
+            float: left;
+            width: 250px;
+            margin: 0 10px;
+            text-align: center;
+        }
+        
+        #service .service_list div {
+            width: 102px;
+            height: 102px;
+            margin: 0 auto;
+            cursor: pointer;
+        }
+        
+        #service .service_list li:nth-of-type(1) div {
+            background-image: url(./imgs/web1.png);
+        }
+        
+        #service .service_list li:nth-of-type(2) div {
+            background-image: url(./imgs/graphic1.png);
+        }
+        
+        #service .service_list li:nth-of-type(3) div {
+            background-image: url(./imgs/e-bussiness1.png);
+        }
+        
+        #service .service_list li:nth-of-type(4) div {
+            background-image: url(./imgs/mail1.png);
+        }
+        
+        #service .service_list h3 {
+            font-size: 13px;
+            color: #434343;
+            line-height: 36px;
+            margin-top: 25px;
+        }
+        
+        #service .service_list p {
+            font-size: 14px;
+            color: #6d6d6d;
+            line-height: 22px;
+            /* 设置行高 */
+        }
+        
+        #customer {
+            background-color: #f8f8f8;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        #customer .area_title {
+            margin-top: 55px;
+        }
+        
+        #customer .area_title h2 {
+            color: #66c5b4;
+        }
+        
+        #customer .container {
+            min-height: 460px;
+            overflow: hidden;
+        }
+        
+        #customer .customer_list {
+            margin-top: 28px;
+        }
+        
+        #customer .customer_list li {
+            float: left;
+            width: 340px;
+            margin: 0 10px;
+        }
+        
+        #customer .customer_btn {
+            width: 176px;
+            height: 37px;
+            background: #66c5b4;
+            margin: 0 auto;
+            border-radius: 25px;
+            line-height: 37px;
+            text-align: center;
+            font-size: 14px;
+            margin-top: 36px;
+        }
+        
+        #customer .customer_btn a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            color: white;
+        }
+        
+        #news {
+            min-height: 450px;
+            overflow: hidden;
+            /* 防止margin传递 */
+        }
+        
+        #news dl {
+            margin-top: 48px;
+        }
+        
+        #news dt {
+            width: 234px;
+        }
+        
+        #news dd {
+            width: 846px;
+        }
+        
+        #news .area_title {
+            margin-top: 65px;
+        }
+        
+        #news .news_list {
+            width: 100%;
+        }
+        
+        #news .news_list li {
+            width: 50%;
+            float: left;
+            margin-bottom: 48px;
+        }
+        
+        #news .news_date {
+            width: 71px;
+            height: 70px;
+            border-right: 1px solid #dcdcdc;
+            text-align: center;
+        }
+        
+        #news .news_date i {
+            color: #66c5b4;
+            font-size: 39px;
+            display: block;
+            font-weight: bold;
+        }
+        
+        #news .news_date span {
+            color: #999999;
+            font-size: 20px;
+            line-height: 36px;
+        }
+        
+        #news .news_text {
+            width: 310px;
+            margin-left: 20px;
+        }
+        
+        #news .news_text h3 {
+            font-size: 14px;
+        }
+        
+        #news .news_text h3 a {
+            color: #3f3f3f;
+        }
+        
+        #news .news_text p {
+            font-size: 12px;
+            color: #a4a4a4;
+            line-height: 21px;
+            margin-top: 17px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="head" class="container">
+        <div class="head_logo l">
+            <a href="#">
+                <img src="./imgs/logo.png" alt="博文尚美" title="博文尚美">
+            </a>
+        </div>
+        <ul class="head_menu r">
+            <li>
+                <a href="#">HOME</a>
+            </li>
+            <li>
+                <a href="#">ABOUT</a>
+            </li>
+            <li>
+                <a href="#">PROTFOLIO</a>
+            </li>
+            <li>
+                <a href="#">SERVICE</a>
+            </li>
+            <li>
+                <a href="#">NEWS</a>
+            </li>
+            <li>
+                <a href="#">CONTANT</a>
+            </li>
+        </ul>
+    </div>
+    <div id="banner" class="container-fluid">
+        <ul class="banner_list" id="my_ul">
+            <li class="active" style="background-image: url(./imgs/f2eff75491f54d9f32ee88c00bb68400_02-06.gif)">
+                <a href="#"></a>
+            </li>
+            <li style="background-image: url(./imgs/banner.png)">
+                <a href="#"></a>
+            </li>
+            <li style="background-image: url(./imgs/banner.png)">
+                <a href="#"></a>
+            </li>
+            <li style="background-image: url(./imgs/banner.png)">
+                <a href="#"></a>
+            </li>
+        </ul>
+        <ol class="banner_btn" id="my_ol">
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ol>
+    </div>
+    <script>
+        var ul_lis = document.querySelectorAll("#my_ul li");
+        var ol_lis = document.querySelectorAll("#my_ol li");
+        // document.write(ol_lis.length);
+        for (var i = 0; i < ol_lis.length; i++) {
+            ol_lis[i].index = i;
+            ol_lis[i].addEventListener("click", function() {
+                for (var j = 0; j < ol_lis.length; j++) {
+                    ol_lis[j].className = " ";
+                    ul_lis[j].className = " ";
+                }
+                this.className = "active";
+                ul_lis[this.index].className = "active";
+            })
+        }
+    </script>
+    <div class="container" id="service">
+        <div class="area_title">
+            <h2>服务范围</h2>
+            <p>OUR SERVICE</p>
+        </div>
+        <ul class="service_list">
+            <li>
+                <div></div>
+                <h3>1.WEB DESIGN</h3>
+                <p>企业品牌网站设计。手机网站制作<br>动画网站创意设计</p>
+            </li>
+            <li>
+                <div></div>
+                <h3>2.GRAPHIC DESIGN</h3>
+                <p>标志LOGO设计/产品宣传册设计<br>企业广告/海报设计</p>
+            </li>
+            <li>
+                <div></div>
+                <h3>3.E-BUSINESS PLAN</h3>
+                <p>淘宝/天猫装修设计及运营推广<br>企业微博、微信营销</p>
+            </li>
+            <li>
+                <div></div>
+                <h3>4.MAILBOXAGENTS</h3>
+                <p>腾讯/网易企业邮箱品牌代理<br>个性化邮箱定制开发</p>
+            </li>
+        </ul>
+    </div>
+    <div class="container-fluid" id="customer">
+        <div class="container">
+            <div class="area_title">
+                <h2>{ 客户案例 }</h2>
+                <p>With the best professional technology, to design the best innovative web site </p>
+            </div>
+            <ul class="customer_list clear">
+                <li>
+                    <a href="#"><img src="./imgs/case1.png" alt=""></a>
+                </li>
+                <li>
+                    <a href="#"><img src="./imgs/case2.png" alt=""></a>
+                </li>
+                <li>
+                    <a href="#"><img src="./imgs/case3.png" alt=""></a>
+                </li>
+            </ul>
+            <div class="customer_btn">
+                <a href="#">VIEW MORE</a>
+            </div>
+        </div>
+    </div>
+    <div class="container" id="news">
+        <div class="area_title">
+            <h2>最新资讯</h2>
+            <p>THE LATEST NEWS</p>
+        </div>
+        <dl>
+            <dt class="l">
+                <img src="./imgs/xs1.png" alt="">
+            </dt>
+            <dd class="l">
+                <ul class="news_list">
+                    <li>
+                        <div class="news_date l">
+                            <i>28</i>
+                            <span>OCT</span>
+                        </div>
+                        <div class="news_text l">
+                            <h3> <a href="#">如何成为一名优秀的网站设计师</a></h3>
+                            <p>很多网站设计师在接到不同类型客户的单子时，常常都是摸不着边，不知道该如何去着手..</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="news_date l">
+                            <i>27</i>
+                            <span>OCT</span>
+                        </div>
+                        <div class="news_text l">
+                            <h3> <a href="#">企业网站推广几种常见错误方法</a></h3>
+                            <p>网站推广效果好坏，往往都是由后期的优化运营来决定。企业网站优化方法很简单....</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="news_date l">
+                            <i>26</i>
+                            <span>OCT</span>
+                        </div>
+                        <div class="news_text l">
+                            <h3> <a href="#">选择虚拟主机几个常见的注意事项</a></h3>
+                            <p>无论是企业网站建设也好，还是个人网站建设也好，做网站都需要购买虚拟主机...</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="news_date l">
+                            <i>23</i>
+                            <span>OCT</span>
+                        </div>
+                        <div class="news_text l">
+                            <h3> <a href="#">微名片有哪些实质性的作用？</a></h3>
+                            <p>说到名片我想大家都已经再熟悉不过了，但是说到微名片也许大部分人都会感到新奇陌生..</p>
+                        </div>
+                    </li>
+                </ul>
+            </dd>
+        </dl>
+    </div>
+    <div class="container-fluid" id="foot">
+        <div class="container">
+            <p class="l">Copyright 2006- 2021 Bowenshangmei Culture All Rights Reserved</p>
+            <div class="r">
+                <a href="#">Home</a> | <a href="#">About</a> | <a href="#">Portfolio</a> | <a href="#">Contact</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
